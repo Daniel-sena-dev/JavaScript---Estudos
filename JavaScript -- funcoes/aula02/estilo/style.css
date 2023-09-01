@@ -1,0 +1,56 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+    background-color: lightblue;
+    align-items: center;
+}
+
+main{
+    text-align: center;
+    margin: auto;
+    background-color: white;
+    width: 400px;
+    height: 400px;
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.555);
+}
+
+main > h1{
+    padding-bottom: 10px;
+
+}
+
+#saida{
+    width: 10px;
+    height: 10px;
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+.caixa{
+    margin-bottom: 5px;
+}
+
+#botao{
+    background-color: lightblue;
+    border: 1px solid rgb(79, 98, 104);
+    cursor: pointer;
+    padding: 10px;
+    margin-top: 20px;
+    border-radius: 10px;    
+    box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.178);
+}
+
+#botao:hover{
+    transition: 0.8s;
+    background-color: rgb(110, 136, 146);
+}

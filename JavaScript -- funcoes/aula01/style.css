@@ -1,9 +1,12 @@
 *{
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
 }
 
 body{
+    width: 100vw;
+    height: 100vh;
     background-color: lightblue;
     align-items: center;
 }
@@ -14,5 +17,6 @@ main{
     width: 400px;
     height: 400px;
     padding: 10px;
-    
+    margin: auto;
+    margin-top: 40px;
 }
