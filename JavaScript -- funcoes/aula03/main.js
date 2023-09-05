@@ -147,6 +147,5 @@ function iniciar(){
         }
         saida2.innerHTML += `${texto}<br>`
     }
-
     simboloMais(5);
 }
