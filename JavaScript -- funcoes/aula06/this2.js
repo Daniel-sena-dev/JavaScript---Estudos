@@ -31,4 +31,12 @@ console.log('Imprimir os valores do vetor criado pelo "for" com o "for in"')
 for(i in vetor){
     console.log(vetor[i])
 }
+console.log('--------')
 
+//---------------
+/*let vetor2 = [[1, 2, 3, 4, 5], [5, 4, 3, 2 , 1]]
+for (i = 0; i < 5; i++){
+    for(j = 0; j < 5; j++){
+        console.log(vetor2[i][j])
+    }
+}*/
