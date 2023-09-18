@@ -1,0 +1,61 @@
+*{
+    padding: 0; 
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: lightblue;
+}
+
+main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50vw;
+    height: 50vh;
+    border-radius: 15px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.336);
+    overflow: hidden;
+    background-color: white;
+}
+
+#imagem{
+    background: url(src/fusoHorario.jpg) no-repeat;
+    background-size: contain;
+    width: 50vw;
+    height: 50vh;
+    
+}
+
+#dados{
+    width: 50vw;
+    height: 50vh;
+    align-items: center;
+    justify-content: center;    
+}
+
+h1{
+    border-bottom: 1px solid rgba(0, 0, 0, 0.459);
+    padding: 5px;
+    font-size: 1.4rem;
+    margin-bottom: 5px;
+}
+
+p{
+    margin: 10px 10px;
+}
+
+.botao{
+    background-color: rgb(101, 209, 245);
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
