@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilos/style.css">
+    <title>Programa Contas do Mês</title>
+</head>
+<body>
+    <main>
+        <section id="imagem"></section>
+        <section id="dados">
+            <h1>Programa Contas do Mês</h1>
+            <p>Descrição da Conta: <input type="text" name="descricao" id="iDescricao" required></p>
+            <p>Valor a Pagar R$: <input type="number" name="numero" id="iNumero" required></p>
+            <input type="button" value="Registrar Conta" onclick="contas()" class="botao">
+            <a href="index.html" class="botao">Voltar</a>
+            <input type="button" value="Limpar" onclick="limpar(true, true)" class="botao">
+
+            <div id="saida"></div>
+            <div id="saida2">
+                <hr>
+            </div>
+        </section>
+    </main>
+    <script src="main.js"></script>
+</body>
+</html>

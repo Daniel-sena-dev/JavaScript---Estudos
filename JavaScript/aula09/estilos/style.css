@@ -71,6 +71,8 @@ p{
     margin-left: 10px;
 }
 
+
+
 .caixa{
     width: 10vw;
 }
@@ -78,4 +80,14 @@ p{
 a{
     text-decoration: none;
     color: black;
+}
+
+#saida2{
+    margin-left: 10px;
+
+}
+
+#saida2 > hr{
+    border-style: dashed;
+    display: none;
 }
