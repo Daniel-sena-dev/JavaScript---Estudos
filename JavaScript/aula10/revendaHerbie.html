@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilos/style.css">
+    <title>Revenda Herbie</title>
+</head>
+<body>
+    <main>
+        <section id="imagem"></section>
+        <section id="dados">
+            <h1>Revenda Herbie</h1>
+            <p>Modelo: <input type="text" name="modelo" id="iModelo"></p>
+            <p>Preço R$: <input type="number" name="preco" id="iPreco"></p>
+            <input type="button" value="Adicionar" class= "botao" onclick="adicionar()">
+            <input type="button" value="Limpar Todos" class="botao" onclick="limpar()">
+            <input type="button" value="Filtar por Preço" class="botao">
+            <a href="index.html" class="botao">Voltar</a>
+            <div id="saida"></div>
+        </section>
+    </main>
+    <script src="main.js"></script>
+</body>
+</html>
