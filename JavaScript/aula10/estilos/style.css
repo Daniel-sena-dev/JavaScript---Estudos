@@ -1,0 +1,97 @@
+@charset "UTF-8";
+
+*{
+    padding: 0; 
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --roxo:rgb(150,34,195);
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgb(150,34,195);
+    background: linear-gradient(0deg, rgba(150,34,195,1) 0%, rgba(142,45,253,1) 100%);
+}
+
+main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50vw;
+    height: 50vh;
+    border-radius: 15px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.603);
+    overflow: hidden;
+    background-color: white;
+}
+
+#imagem{
+    background: url(../src/notebook.jpg) no-repeat;
+    background-size: cover;
+    width: 50vw;
+    height: 50vh;
+    
+}
+
+#dados{
+    width: 50vw;
+    height: 50vh;
+    align-items: center;
+    justify-content: center;    
+}
+
+h1{
+    border-bottom: 1px solid rgba(0, 0, 0, 0.459);
+    padding: 5px;
+    font-size: 1.4rem;
+    margin-bottom: 5px;
+}
+
+p{
+    margin: 10px 10px;
+}
+
+.botao{
+    background: rgb(150,34,195);
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    margin-left: 10px;
+    color: white;
+}
+
+.botao:hover{
+    background: var(--roxo);
+}
+
+#saida{
+    margin-left: 10px;
+}
+
+.caixa{
+    width: 10vw;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+#saida2{
+    margin-left: 10px;
+
+}
+
+#saida2 > hr{
+    border-style: dashed;
+    display: none;
+}
