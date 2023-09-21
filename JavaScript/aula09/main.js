@@ -164,3 +164,57 @@ function criarChinchilas(){
 
 
 }   
+
+function numeroPerfeito(){
+    let saida = saidaTela()
+    let iNumeroPerfeito = document.getElementById('iNumeroPerfeito')
+    let numeroPerfeito = Number(iNumeroPerfeito.value)
+    let divisores = 0
+    let listaDivisores = []
+    //Limpando saida
+    saida.innerHTML = ''
+    let cont = 0
+    //Divisores
+    for(i = 1; i < numeroPerfeito; i++){
+        if(numeroPerfeito % i == 0){
+            listaDivisores[cont] = i
+            divisores += i
+            cont++
+        }
+    }
+    //Imprimindo divisores
+    saida.innerHTML = `<h2>Divisores do ${numeroPerfeito}: ${listaDivisores} (Soma: ${divisores})</h2>`
+    //Verificando se é um numero perfeito
+    if(divisores == numeroPerfeito){
+        saida.innerHTML += `<h2>${numeroPerfeito} é um Número Perfeito</h2>`
+    } else{
+        saida.innerHTML += `<h2>${numeroPerfeito} Não é um Número Perfeito</h2>`
+    }
+
+
+    //Limpando campos
+    iNumeroPerfeito.value = ''
+    iNumeroPerfeito.focus()
+}
+
+function criarEstrela(){
+    let saida = saidaTela()
+    let iQuantidadeEstrelas = document.getElementById('iQuantidadeEstrelas')
+    let quantidadeEstrelas = Number(iQuantidadeEstrelas.value)
+
+    //Limpando saida
+    saida.innerHTML = ``
+
+    //Criando estrelas
+    for(i = 0; i <= quantidadeEstrelas; i ++){
+        for(j = i; j > 0; j--){
+            saida.innerHTML += `* `
+        }
+        saida.innerHTML += `<br>`
+    }
+
+    //Limpar campos
+    iQuantidadeEstrelas.value = ''
+    iQuantidadeEstrelas.focus()
+
+}
