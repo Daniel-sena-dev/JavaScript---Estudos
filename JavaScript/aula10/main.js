@@ -130,8 +130,64 @@ function descubraNumero(){
 }
 //==============================================================================
 //Revenda Herbie
+var carro = []
 function adicionar(){
     let saida = saidaTela()
-
+    let iModelo = document.getElementById('iModelo')
+    let iPreco = document.getElementById('iPreco')
+    let modelo = iModelo.value
+    let preco = Number(iPreco.value)
     
+    //Limpar saida
+    saida.innerHTML = ``
+    if(modelo == '' || preco == 0){
+        saida.innerHTML = `<p>valores inválidos</p>`
+        saida.style.color = 'red'
+    } else{
+        carro.push({modelo: modelo, preco: preco})
+        saida.style.color = 'black'
+    }
+
+    //Limpar inputs
+    iModelo.value = ''
+    iModelo.focus()
+    iPreco.value = ''    
+
+    listarCarros()
+}
+
+function listarCarros(){
+    let saida = saidaTela()
+    
+    //Limpar saida
+    saida.innerHTML = ``
+    
+    //Imprimir carros
+    if(carro.length == 0){
+        saida.innerHTML = `<p>Não a carros para listar</p>`
+        saida.style.color = 'red'
+    } else{
+        for(i = 0; i < carro.length; i ++){
+            saida.innerHTML += `<p>${carro[i].modelo} - R$: ${carro[i].preco.toFixed(2)}</p>`
+        }
+    }
+}
+
+function filtrarCarro(){
+    let saida = saidaTela()
+    let maximo = Number(prompt('Qual valor máximo que o cliente deseja pagar?'))
+    //Limpar saida
+    saida.innerHTML = ``
+
+    if(maximo == 0 || isNaN(maximo)){
+        return;
+    }
+
+    for(i = 0; i < carro.length; i++){
+        if(carro[i].preco <= maximo){
+            saida.innerHTML = `<p>${carro[i].modelo} - R$: ${carro[i].preco.toFixed(2)}</p>`
+        }
+    }
+
+
 }
