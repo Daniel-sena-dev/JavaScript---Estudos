@@ -11,10 +11,11 @@
         <section id="imagem"></section>
         <section id="dados">
             <h1>Programa Números em Ordem</h1>
-            <p>Número: <input type="number" name="numero" id="iNumero"><input type="button" value=" + " class="botao"></p>
-            <input type="button" value="Verificar Ordem" class="botao">
+            <p>Número: <input type="number" name="numero" id="iNumero"><input type="button" value=" + " class="botao" onclick="adicionarNumero()"></p>
+            <input type="button" value="Verificar Ordem" class="botao" onclick="verificarOrdem()">
             <a href="index.html" class="botao">Voltar</a>
-            <div id="saida"></div>
+            <input type="button" value="Limpar" class="botao" onclick="limpar(true)">
+            <div id="saida"></div> 
         </section>
     </main>
     <script src="main.js"></script>

@@ -329,3 +329,65 @@ function montarTabela(){
         }
     }
 }
+
+//Adicionar numero a um vetor
+var listaNumero = []
+function adicionarNumero(){
+    let saida = saidaTela()
+    let iNumero = document.getElementById('iNumero')
+    let numero = Number(iNumero.value)
+    let numeroNaLista = false
+    let fraseSaida = 'Número: '
+
+    //Limpar saida
+    saida.innerHTML = ''
+
+    //Verificando se o número está na lista
+    for(i = 0; i < listaNumero.length; i++){
+        if(numero == listaNumero[i]){
+            numeroNaLista = true
+            break
+        }
+    }
+
+    //Adicionando o numero na lista se for true
+    if(numeroNaLista == false){
+        listaNumero.push(numero)
+    }
+
+    //Imprimindo a lista
+    for(i = 0; i < listaNumero.length; i++){
+        fraseSaida += ` ${listaNumero[i]} `
+    }
+
+    saida.innerHTML = `<h2>${fraseSaida}</h2>`
+
+    //Limpar inputs
+    iNumero.value = ''
+    iNumero.focus()
+}
+
+function verificarOrdem(){
+    let saida = saidaTela()
+    let listaOrdem = listaNumero.slice()
+    listaOrdem.sort()
+    let ordem = false
+    
+    //Verificando se a lista esta na ordem crescente
+    for(i = 0; i < listaNumero.length; i++){
+        if(listaNumero[i] == listaOrdem[i]){
+            ordem = true
+        } else{
+            ordem = false
+            break
+        }
+    }
+
+    if(ordem == false){
+        saida.innerHTML += `<h3>Atenção... Números não estão em ordem crescente</h3>`
+    } else{
+        saida.innerHTML += `<h3>Números estão em ordem crescente</h3>`
+    }
+
+
+}
