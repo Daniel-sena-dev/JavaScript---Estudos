@@ -183,11 +183,149 @@ function filtrarCarro(){
         return;
     }
 
+    saida.innerHTML = `<h4>Carros até R$ ${maximo.toFixed(2)}</h4>`
+    saida.innerHTML += `<p>------------------------------------</p>`
     for(i = 0; i < carro.length; i++){
         if(carro[i].preco <= maximo){
-            saida.innerHTML = `<p>${carro[i].modelo} - R$: ${carro[i].preco.toFixed(2)}</p>`
+            saida.innerHTML += `<p>${carro[i].modelo} - R$: ${carro[i].preco.toFixed(2)}</p>`
+        }
+    }
+}
+//==============================================================================
+let listaCrianca = []
+function adicionarCrianca(){
+    let saida = saidaTela()
+    let iNome = document.getElementById('iNome')
+    let iIdade = document.getElementById('iIdade')
+    let nome = iNome.value
+    let idade = Number(iIdade.value)
+
+    //Limpar campo
+    saida.innerHTML = ``
+
+    listaCrianca.push({nome: nome, idade: idade})
+
+    listarCrianca()
+    
+    //Limpar input
+    iNome.value = ''
+    iNome.focus()
+    iIdade.value = ''
+}
+
+//Listar crianças
+function listarCrianca(){
+    let saida = saidaTela()
+
+    //Limpar campo
+    saida.innerHTML = ``
+
+    //Listar Crianças
+    for(i = 0; i < listaCrianca.length; i++){
+        saida.innerHTML += `<p>${listaCrianca[i].nome} - ${listaCrianca[i].idade} anos</p>`
+    }
+}
+
+//Resumir por idade
+function resumirLista(){
+    let saida = saidaTela()
+    
+    //Limpar campo
+    saida.innerHTML = ``
+
+    if(listaCrianca.length == 0)    {
+        alert('Não há crianças na lista')
+        return;
+    }
+
+    //Criando copia da lista
+    let copia = listaCrianca.slice()
+
+    //ordernar o vetor copia pela idade
+    copia.sort(function(a,b){return a.idade - b.idade})
+
+    let resumo = ''
+
+    //Menor idade do vetor ordenado
+    let aux = copia[0].idade
+    //Vetor para inserir nomes de cada idade
+    let nomes = []
+
+    for(i = 0; i < copia.length; i++){
+        if(copia[i].idade == aux){
+            nomes.push(copia[i].nome)
+        } else{
+            resumo += `<p>${aux} anos(s) ${nomes.length} criança(s) - ${(nomes.length/copia.length * 100).toFixed(2)}%</p>`
+            resumo += `<p>(${nomes.join(', ')})</p>`
+            aux = copia[i].idade
+            nomes = []
+            nomes.push(copia[i].nome)
         }
     }
 
+    resumo += `<p>${aux} anos(s) ${nomes.length} criança(s) - ${(nomes.length/copia.length * 100).toFixed(2)}%</p>`
+    resumo += `<p>(${nomes.join})</p>`
+    
+    saida.innerHTML = `${resumo}`
+}
+//==============================================================================
+//Adicionar um time
+var listaTimes = []
+function adicionarTime(){
+    saida = saidaTela()
+    let iNomeTime = document.getElementById('iTime')
+    let nomeTime = iNomeTime.value
 
+    //Limpar saida
+    saida.innerHTML = ``
+
+    if(nomeTime == ''){
+        saida.innerHTML = `Valor invalido! Digite um valor valido`
+        saida.style.color = 'red'
+    } else{
+        listaTimes.push(nomeTime)
+    }
+
+    listarTime()
+
+    //Limpar inputs
+    iNomeTime.value = ''
+    iNomeTime.focus()
+}
+
+//Listar times
+function listarTime(){
+    saida = saidaTela()
+
+    //Limpar saida
+    saida.innerHTML = ``
+
+    if(listaTimes.length == 0){
+        saida.innerHTML = `<p>Sem times cadastrados</p>`
+        saida.style.color = 'red'
+    } else{
+        for(i = 0; i < listaTimes.length; i++){
+            saida.style.color = 'black'
+            saida.innerHTML += `<p>${i+1} - ${listaTimes[i]}</p>`
+        }
+    }
+}
+
+//Montar tabela
+function montarTabela(){
+    saida = saidaTela()
+    
+    //Limpar saida
+    saida.innerHTML = ``
+
+    if(listaTimes.length % 2 == 1){
+        saida.innerHTML = `<p>Não há time suficiente para criar tabela!</p>`
+        saida.style.color = 'red'
+    } else{
+        let quantidadeTimes = listaTimes.length - 1
+        for(i = 0; i < listaTimes.length / 2; i++){
+            saida.innerHTML += `<p>${listaTimes[i]} X ${listaTimes[quantidadeTimes]}</p>`
+            quantidadeTimes--
+        }
+    }
 }
