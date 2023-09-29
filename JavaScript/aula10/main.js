@@ -16,8 +16,6 @@ function saidaTela(){
 
 //Limpar saida
 function limpar(saida1, saida2){
-    
-
     if(saida1 == true){
         let saida = saidaTela()
         saida.innerHTML = ``
@@ -388,8 +386,67 @@ function verificarOrdem(){
     } else{
         saida.innerHTML += `<h3>Números estão em ordem crescente</h3>`
     }
+}
+//==========================================================================================
+//Programa do concurso
+var candidatos = []
+var acertos = []
+function adicionarCandidato(){
+    let saida = saidaTela()
+    let iNomeCandidato = document.getElementById('iNomeCandidato')
+    let nomeCandidato = iNomeCandidato.value
+    let iQuantidadeAcerto = document.getElementById('iQuantidadeAcerto')
+    let quantidadeAcerto = Number(iQuantidadeAcerto.value)
 
+    //Limpar saida
+    saida.innerHTML = ''
+
+    //Adicionar os valores
+    if(nomeCandidato == '' || quantidadeAcerto < 0){
+        saida.innerHTML = `<p>Valor digitado invalido!</p>`
+    } else{
+        candidatos.push(nomeCandidato)
+        acertos.push(quantidadeAcerto)
+    }
+
+
+    listarCandidatos()
+
+    //Limpar inputs
+    iNomeCandidato.value = ''
+    iNomeCandidato.focus()
+    iQuantidadeAcerto.value = ''
+}
+
+//Listar candidatos
+function listarCandidatos(){
+    let saida = saidaTela()
+
+    //Limpar campos
+    saida.innerHTML = ''
+
+    for(i = 0; i < candidatos.length; i++){
+        saida.innerHTML += `<p>${candidatos[i]} - ${acertos[i]} acertos</p>`
+    }
 
 }
 
-/* teste */
+//Listar aprovador
+function listarAprovados(){
+    saida = saidaTela()
+    notaCorte = Number(prompt('Digite o valor da nota de corte'))
+    //Limpar campos
+    saida.innerHTML = ''
+
+    if(candidatos.length <= 0){
+        saida.innerHTML = `<p>Não há candidatos suficientes!</p>`
+    } else{
+        for(i = 0; i < candidatos.length; i++){
+            if(acertos[i] >= notaCorte){
+                saida.innerHTML += `<p>${candidatos[i]} - ${acertos[i]} acertos</p>`
+            }
+        }
+    }
+
+
+}
