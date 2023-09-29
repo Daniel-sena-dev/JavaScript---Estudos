@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilos/style.css">
+    <title>Últimas notícias</title>
+</head>
+<body>
+    <main>
+        <section id="imagem"></section>
+        <section id="dados">
+            <h1>Programa Últimas Notícias</h1>
+            <p>Notícia: 
+                <input type="text" name="noticia" id="iNoticia">
+                <input type="button" value="+" class="botao" onclick="adicionarNoticia()">
+            </p>
+            <input type="button" value="Listar Últimas Notícias" class="botao" onclick="listarNoticia()">
+            <a href="index.html" class="botao">Voltar</a>
+            <div id="saida"></div>
+        </section>
+    </main>    
+    <script src="main.js"></script>
+</body>
+</html>

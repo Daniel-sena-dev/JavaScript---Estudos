@@ -433,8 +433,8 @@ function listarCandidatos(){
 
 //Listar aprovador
 function listarAprovados(){
-    saida = saidaTela()
-    notaCorte = Number(prompt('Digite o valor da nota de corte'))
+    let saida = saidaTela()
+    let notaCorte = Number(prompt('Digite o valor da nota de corte'))
     //Limpar campos
     saida.innerHTML = ''
 
@@ -447,6 +447,51 @@ function listarAprovados(){
             }
         }
     }
+}
 
+//==================================================================================
+var listaNoticias = []
+function adicionarNoticia(){
+    let saida = saidaTela()
+    let iNoticia = document.getElementById('iNoticia')
+    let noticia = iNoticia.value
+
+    //Limpar saida 
+    saida.innerHTML = ``
+
+    //Adicionando a noticia no vetor
+    if(noticia == ''){
+        saida.innerHTML += `Valor digitado invalido!`
+        saida.style.color = 'red'
+    } else{
+        listaNoticias.push(noticia)
+    }
+
+    //Listar noticias
+    for(i = 0; i < listaNoticias.length; i++){
+        saida.innerHTML += `<p>${i + 1}º) ${listaNoticias[i]}</p>`
+    }
+
+    //Limpar input
+    iNoticia.value = ''
+    iNoticia.focus()
+}
+
+//Listar ultimas noticias
+function listarNoticia(){
+    let saida = saidaTela()
+    let quantidadeNoticias = Number(prompt('Quantas noticias deseja ver?'))
+    let inverterLista = listaNoticias.reverse()
+
+    //Limpar saida
+    saida.innerHTML = ''
+
+    if(listaNoticias.length <= 0){
+        saida.innerHTML = `<p>Não noticias suficiente</p>`
+    } else{
+        for(i = 0; i < quantidadeNoticias; i++){
+            saida.innerHTML += `<p>${inverterLista.length - i}º) ${inverterLista[i]}</p>`
+        }
+    }
 
 }
