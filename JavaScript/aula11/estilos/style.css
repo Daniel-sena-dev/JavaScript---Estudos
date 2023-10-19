@@ -71,7 +71,10 @@ p{
 }
 
 .botao:hover{
+    transition: 0.7s;
+    color: black;
     background: var(--roxo);
+    box-shadow: 1px 2px 2px var(--roxo);
 }
 
 #saida{

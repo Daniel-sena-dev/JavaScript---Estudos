@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilos/style.css">
+    <link rel="stylesheet" href="estilos/imagem.css">
+    <title>Caixa da loja</title>
+</head>
+<body>
+    <main>
+        <section id="imagem"></section>
+        <section id="dados">
+            <h1>Programa Caixa da Loja</h1>
+            <p>Data de vencimento: <input type="date" name="data" id="iData" autofocus></p>
+            <p>Valor da Conta R$: <input type="number" name="conta" id="iConta" placeholder="R$ 0000"></p>
+            <p>Valor da Multa R$: <input type="number" name="multa" id="iMulta" readonly placeholder="aguardando dados"></p>
+            <p>Valor de Juros R$: <input type="number" name="juros" id="iJuros" readonly placeholder="aguardando dados"></p>
+            <p>Total a Pagar R$: <input type="number" name="total" id="iTotal" readonly placeholder="aguardando dados"></p>
+            <input type="button" value="Nova Conta" class="botao" onclick="limparCampos()">
+            <input type="button" value="Calcular Multa e Juros" class="botao" onclick="calcularMultaJuros()">
+            <a href="index.html" class="botao">Voltar</a>
+        </section>
+    </main>
+    <script src="main.js"></script>
+</body>
+</html>
