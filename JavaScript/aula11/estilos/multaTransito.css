@@ -1,0 +1,5 @@
+#imagem{
+    background: url(../src/imagens/semaforo.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+}

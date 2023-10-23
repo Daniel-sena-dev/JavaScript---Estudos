@@ -1,0 +1,7 @@
+#imagem{
+    background: url(../src/imagens/referenciaBibliografica.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: rgb(4, 35, 69);
+
+}

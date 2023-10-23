@@ -273,7 +273,6 @@ function verificandoData(){
    saida.innerHTML = `<p><b>Data de hoje:</b> ${dataHoje}</p>`
    saida.innerHTML += `<p><b>Data de amanhã:</b> ${dataAmanha}</p>`
 }
-v
 //Separando a data
 function pegandoParteDatas(){
     saida = saidaTela()
@@ -291,3 +290,183 @@ function pegandoParteDatas(){
     saida.innerHTML += `<p><b>Horas:</b> ${dataHoje.getHours()}:${dataHoje.getMinutes()}</p>`
 }
 //=========================================================================
+//data das parcelas
+function dataParcelas(){
+    saida = saidaTela()
+    let iParcelas = document.getElementById('iParcelas')
+    let parcelas = iParcelas.value
+
+    //Criando a data de hoje
+    let data = new Date()
+    let dia = data.getDate()
+    let mes = data.getMonth() + 1
+    let ano = data.getFullYear()
+
+    //Limpar saida
+    saida.innerHTML = ``
+
+    diaZero = dia < 10 ? "0" + dia : dia
+    mesZero = mes < 10 ? "0" + mes : mes
+
+    for(i = 0; i < parcelas; i++){ //CORRIGIR
+        saida.innerHTML += `<p>${i + 1}ª Parcela: ${diaZero}/${mesZero + i}/${ano}</p>`
+    }
+
+    //Limpar inputs
+    iParcelas.value = ''
+    iParcelas.focus()
+}
+//=========================================================================
+//Criptografia
+var mensagem = null
+function criptografia(){
+    let saida = saidaTela()
+    let iMensagem = document.getElementById('iMensagem')
+    mensagem = iMensagem.value
+   
+    //Limpando saida
+    saida.innerHTML = ``
+    saida.style.color = 'black'
+
+    //Imprimindo apenas as letras pares
+    for(i = 0; i < mensagem.length; i++){
+        if(i % 2 == 0){
+            saida.innerHTML += `${mensagem[i + 1]}`
+        }
+    }
+    //Imprimindo apenas as letras impares
+    for(i = 0; i < mensagem.length; i++){
+        if(i % 2 == 1){
+            saida.innerHTML += `${mensagem[i - 1]}`
+        }
+    }
+
+    //Limpar inputs
+    iMensagem.value = ``
+    iMensagem.focus()
+
+}
+//Descriptografia
+function descriptografia(){
+    let saida = saidaTela()
+    
+    //Verificando se tem mensagem para descriptografar
+    if(mensagem == null){
+        saida.innerHTML = `<p>Não mensagem para descriptografar</p>`
+        saida.style.color = 'red'
+    } else{
+        saida.style.color = 'black'
+        saida.innerHTML = `<p>${mensagem}</p>`
+    }
+}
+//=========================================================================
+//Fazer referencia bibliografica
+function referenciar(){
+    let saida = saidaTela()
+    let iNome = document.getElementById('iNome')
+    let nome = iNome.value
+
+    //Limpar saida
+    saida.style.color = 'black'
+    saida.innerHTML = ``
+
+    //Tratando nome
+    if(nome == ''){
+        saida.innerHTML = `<p>Digite o nome no campo!</p>`
+        saida.style.color = 'red'
+    } else{
+        //Colocando o nome num vetor
+        let partes = nome.split(' ')
+        
+        //Removendo conectivos
+        for(i = 0; i < partes.length; i++){
+            if(partes[i].length <= 2){
+                partes.splice(i, 1)
+            }
+        }
+
+        let nomeReferenciado = partes[partes.length - 1] + ', '
+        
+        //Imprimindo a letra inicial de cada nome
+        for(i = 0; i < partes.length - 1; i++){
+            nomeReferenciado += partes[i][0] + '. '
+        }
+
+        //Saida
+        saida.innerHTML = `<p><b>Citação Bibliográfica: ${(nomeReferenciado).toUpperCase()}</b></p>`
+    }
+    
+
+    //Limpar inputs
+    iNome.value = ''
+    iNome.focus()
+}
+//==============================================================================
+//Frase palindromo
+function frasePalindromo(){
+    let saida = saidaTela()
+    let iFrase = document.getElementById('iFrase')
+    let frase = iFrase.value
+    let palindromo = true
+
+    //Tirando os espaços e juntando num  vetor so
+    let juntandoFrase = frase.split(' ')
+    juntandoFrase = juntandoFrase.join('').toLowerCase()
+    
+    //Limpar saida
+    saida.innerHTML = ``
+    
+    //verificar se a frase é um palindromo
+    for(i = 0; i < juntandoFrase.length; i++){
+        if(juntandoFrase[i] != juntandoFrase[(juntandoFrase.length - 1) - i]){
+            palindromo = false
+        }
+    }
+
+    if(palindromo == true){
+        saida.innerHTML = `<p>${frase.toUpperCase()} é um palíndromo</p>`
+    } else{
+        saida.innerHTML = `<p>Não é um palíndromo</p>`
+    }
+
+    //Limpar inputs
+    iFrase.value = ''
+    iFrase.focus()
+}
+//==============================================================================
+//Multa de trânsito
+function multaTransito(){
+    let saida = saidaTela()
+    let iData = document.getElementById('iData')
+    let iMulta = document.getElementById('iMulta')
+    let data = iData.value
+    let multa = Number(iMulta.value)
+    //Tratando data
+    let dataCompleta = data.split('-')
+    //Calcular o desconto da multa
+    let multaDesconto = multa - (multa * 0.2)
+    //Limpar saida
+    saida.style.color = 'black'
+    saida.innerHTML = ``
+
+    //Adicionando a data limite do mês
+    dataCompleta[1] = Number(dataCompleta[1]) + 3
+    if(dataCompleta[1] > 12){
+        dataCompleta[1] -= 12
+    }
+
+    //Multa
+    let mes = dataCompleta[1] < 9 ? '0' + dataCompleta[1] : dataCompleta[1]
+    if(data == '' || multa == ''){
+        saida.innerHTML = `<p>Valor digitado inválido!</p>`
+        saida.style.color = 'red'
+    } else{
+        saida.innerHTML = `<p>Data limite para pagamento com desconto ${dataCompleta[2]}/${mes}/${dataCompleta[0]}</p>`
+        saida.innerHTML += `<p>Valor com desconto R$${multaDesconto.toFixed(2)}</p>`
+    }
+
+    //Limpar inputs
+    iData.value = ''
+    iData.focus()
+    iMulta.value = ''
+}
